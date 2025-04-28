@@ -5,6 +5,7 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { Button, ButtonText } from '@/components/ui/button';
 
 export default function HomeScreen() {
   return (
@@ -49,6 +50,9 @@ export default function HomeScreen() {
           <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
           <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
+          <Button>
+            <ButtonText>Click me</ButtonText>
+          </Button>
         </ThemedText>
       </ThemedView>
     </ParallaxScrollView>

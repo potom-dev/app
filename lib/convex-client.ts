@@ -6,5 +6,7 @@ if (!CONVEX_URL) {
   throw new Error("Missing Convex URL");
 }
 
-export const convex = new ConvexReactClient(CONVEX_URL);
+export const convex = new ConvexReactClient(CONVEX_URL, {
+  unsavedChangesWarning: false
+});
 

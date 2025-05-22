@@ -8,6 +8,16 @@ import 'react-native-reanimated';
 import { queryClient } from '@/lib/query-client';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { QueryClientProvider } from '@tanstack/react-query';
+import * as SecureStore from 'expo-secure-store';
+import { convex } from '@/lib/convex-client';
+import { Platform } from 'react-native';
+import { ConvexAuthProvider } from "@convex-dev/auth/react";
+
+const secureStorage = {
+  getItem: SecureStore.getItemAsync,
+  setItem: SecureStore.setItemAsync,
+  removeItem: SecureStore.deleteItemAsync,
+};
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -21,14 +31,23 @@ export default function RootLayout() {
   }
 
   return (
-    <GluestackUIProvider mode="light"><ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <QueryClientProvider client={queryClient}>
-          <Stack>
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen name="+not-found" />
-          </Stack>
-          <StatusBar style="auto" />
-        </QueryClientProvider>
-      </ThemeProvider></GluestackUIProvider>
+    <ConvexAuthProvider client={convex}
+      storage={
+        Platform.OS === "android" || Platform.OS === "ios"
+          ? secureStorage
+          : undefined
+      }>
+      <GluestackUIProvider mode="light">
+        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+          <QueryClientProvider client={queryClient}>
+            <Stack>
+              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+              <Stack.Screen name="+not-found" />
+            </Stack>
+            <StatusBar style="auto" />
+          </QueryClientProvider>
+        </ThemeProvider>
+      </GluestackUIProvider>
+    </ConvexAuthProvider>
   );
 }

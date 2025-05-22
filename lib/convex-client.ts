@@ -7,6 +7,7 @@ if (!CONVEX_URL) {
 }
 
 export const convex = new ConvexReactClient(CONVEX_URL, {
-  unsavedChangesWarning: false
+  unsavedChangesWarning: false,
+  verbose: true,
 });
 

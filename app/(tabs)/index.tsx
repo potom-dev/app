@@ -6,7 +6,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { Button, ButtonText } from '@/components/ui/button';
-import { UserName } from '@/components/user-name';
+import UserName from '@/components/user-name';
 import { Authenticated } from 'convex/react';
 export default function HomeScreen() {
 

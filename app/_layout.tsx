@@ -8,7 +8,7 @@ import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import * as SecureStore from 'expo-secure-store';
 import { convex } from '@/lib/convex-client';
-import { Platform } from 'react-native';
+import { Platform, SafeAreaView } from 'react-native';
 import { ConvexAuthProvider } from "@convex-dev/auth/react";
 
 const secureStorage = {
@@ -37,11 +37,13 @@ export default function RootLayout() {
       }>
       <GluestackUIProvider mode="light">
         <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+          <SafeAreaView style={{ flex: 1 }}>
             <Stack>
-              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+              <Stack.Screen name="(auth)" options={{ headerShown: false }} />
               <Stack.Screen name="+not-found" />
             </Stack>
-            <StatusBar style="auto" />
+          </SafeAreaView>
+          <StatusBar style="auto" />
         </ThemeProvider>
       </GluestackUIProvider>
     </ConvexAuthProvider>

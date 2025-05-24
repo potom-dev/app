@@ -5,7 +5,6 @@ export const { auth, signIn, signOut, store, isAuthenticated } = convexAuth({
   providers: [
     GitHub({
       profile(githubProfile, tokens) {
-        console.log(githubProfile);
         return {
           id: githubProfile.id.toString(),
           name: githubProfile.name,
@@ -16,4 +15,15 @@ export const { auth, signIn, signOut, store, isAuthenticated } = convexAuth({
       },
     }),
   ],
+  callbacks: {
+    async redirect({ redirectTo }) {
+      if (
+        !redirectTo.startsWith("exp://") &&
+        !redirectTo.startsWith("http://localhost")
+      ) {
+        throw new Error(`Invalid redirectTo URI ${redirectTo}`);
+      }
+      return redirectTo;
+    },
+  },
 });

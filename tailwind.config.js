@@ -192,6 +192,15 @@ module.exports = {
         'soft-3': '0px 0px 30px rgba(38, 38, 38, 0.1)',
         'soft-4': '0px 0px 40px rgba(38, 38, 38, 0.1)',
       },
+      height: {
+        ios: '852px',
+      },
+      width: {
+        ios: '393px',
+      },
+      borderRadius: {
+        ios: '40px',
+      },
     },
   },
   plugins: [gluestackPlugin],

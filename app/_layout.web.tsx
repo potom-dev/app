@@ -1,30 +1,12 @@
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import { CommonLayout } from './CommonLayout';
 
 export default function RootLayout() {
   return (
-    <View style={styles.container}>
-      <View style={styles.phoneContainer}>
+    <View className="flex-1 items-center justify-center bg-background-light">
+      <View className="h-ios w-ios overflow-hidden rounded-ios border-4 border-gray-300 bg-white">
         <CommonLayout storage={undefined} />
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f0f0f0',
-  },
-  phoneContainer: {
-    width: 393,
-    height: 852,
-    borderWidth: 4,
-    borderColor: 'gray',
-    borderRadius: 40,
-    overflow: 'hidden',
-    backgroundColor: 'white',
-  },
-});

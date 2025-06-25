@@ -20,6 +20,7 @@ export function ThemedText({
   return (
     <Text
       style={[
+        styles.base,
         { color },
         type === 'default' ? styles.default : undefined,
         type === 'title' ? styles.title : undefined,
@@ -34,6 +35,9 @@ export function ThemedText({
 }
 
 const styles = StyleSheet.create({
+  base: {
+    fontFamily: 'Martian Grotesk',
+  },
   default: {
     fontSize: 16,
     lineHeight: 24,

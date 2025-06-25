@@ -1,14 +1,14 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import "@/global.css";
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
+import "@/global.css";
+import { useColorScheme } from '@/hooks/useColorScheme';
+import { convex } from '@/lib/convex-client';
+import { ConvexAuthProvider } from "@convex-dev/auth/react";
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-import { useColorScheme } from '@/hooks/useColorScheme';
-import { convex } from '@/lib/convex-client';
 import { SafeAreaView } from 'react-native';
-import { ConvexAuthProvider } from "@convex-dev/auth/react";
+import 'react-native-reanimated';
 
 type ConvexAuthStore = {
   getItem(key: string): string | null | Promise<string | null>;
@@ -20,6 +20,7 @@ export function CommonLayout({ storage }: { storage?: ConvexAuthStore }) {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    'Martian Grotesk': require('../assets/fonts/MartianGrotesk-VFVF.ttf'),
   });
 
   if (!loaded) {
@@ -32,8 +33,8 @@ export function CommonLayout({ storage }: { storage?: ConvexAuthStore }) {
       <GluestackUIProvider mode="light">
         <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
           <SafeAreaView style={{ flex: 1 }}>
-            <Stack>
-              <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+            <Stack screenOptions={{ headerShown: false }}>
+              <Stack.Screen name="(auth)" options={{ headerShown: true }} />
               <Stack.Screen name="+not-found" />
             </Stack>
           </SafeAreaView>

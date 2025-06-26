@@ -60,7 +60,7 @@ module.exports = {
         ios: '393px',
       },
       borderRadius: {
-        ios: '40px',
+        ios: '65px',
       },
     },
   },

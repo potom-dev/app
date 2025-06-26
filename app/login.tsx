@@ -6,7 +6,7 @@ import { VStack } from "@/components/ui/vstack";
 import { useAuthActions } from "@convex-dev/auth/react";
 import { useConvexAuth } from "convex/react";
 import { makeRedirectUri } from "expo-auth-session";
-import { Redirect } from "expo-router";
+import { Redirect, router } from "expo-router";
 import { openAuthSessionAsync } from "expo-web-browser";
 import { Platform } from "react-native";
 
@@ -30,6 +30,10 @@ export default function Login() {
     }
   };
 
+  const handleSignInPassword = async () => {
+    router.push("/account-init");
+  };
+
   if (isAuthenticated) {
     return <Redirect href="/" />;
   }
@@ -45,7 +49,7 @@ export default function Login() {
           remember connections
         </Heading>
       </VStack>
-      <VStack className="w-full" space="xs">
+      <VStack className="w-full" space="sm">
         <Button
           full
           onPress={handleSignIn}
@@ -59,7 +63,7 @@ export default function Login() {
         </Button>
         <Button
           full
-          onPress={handleSignIn}
+          onPress={handleSignInPassword}
           action="flat"
           size='md'
           variant="solid"

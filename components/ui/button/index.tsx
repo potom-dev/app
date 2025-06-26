@@ -119,11 +119,11 @@ const buttonTextStyle = tva({
   parentVariants: {
     action: {
       flat:
-        'text-typography-950',
+        'text-tx',
       primary:
-        'text-primary-600 data-[hover=true]:text-primary-600',
+        'text-tx-on-primary',
       secondary:
-        'text-typography-500 data-[hover=true]:text-typography-600',
+        'text-tx',
     },
     variant: {
       link: 'data-[hover=true]:underline data-[active=true]:underline',
@@ -139,7 +139,7 @@ const buttonTextStyle = tva({
       variant: 'solid',
       action: 'primary',
       class:
-        'text-typography-0 data-[hover=true]:text-typography-0 data-[active=true]:text-typography-0',
+        'text-tx-on-primary',
     },
     {
       variant: 'solid',

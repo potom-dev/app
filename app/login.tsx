@@ -1,10 +1,14 @@
 import { Button, ButtonText } from "@/components/ui/button";
+import { Heading } from "@/components/ui/heading";
+import { Logo } from "@/components/ui/Logo";
+import { Text } from "@/components/ui/text";
+import { VStack } from "@/components/ui/vstack";
 import { useAuthActions } from "@convex-dev/auth/react";
 import { useConvexAuth } from "convex/react";
 import { makeRedirectUri } from "expo-auth-session";
 import { Redirect } from "expo-router";
 import { openAuthSessionAsync } from "expo-web-browser";
-import { Platform, View } from "react-native";
+import { Platform } from "react-native";
 
 const redirectTo = makeRedirectUri();
 
@@ -31,12 +35,43 @@ export default function Login() {
   }
 
   return (
-    <View>
-      <Button onPress={handleSignIn}>
-        <ButtonText>
-          Sign in with GitHub
-        </ButtonText>
-      </Button>
-    </View>
+    <VStack className="h-full items-center bg-bg justify-end px-8" space="lg">
+      <Logo className="pt-10 mb-auto" />
+      <VStack className="w-full" space="0">
+        <Heading className="text-center">
+          forget the friction
+        </Heading>
+        <Heading className="text-center">
+          remember connections
+        </Heading>
+      </VStack>
+      <VStack className="w-full" space="xs">
+        <Button
+          full
+          onPress={handleSignIn}
+          action="flat"
+          size='md'
+          variant="solid"
+        >
+          <ButtonText>
+            use google
+          </ButtonText>
+        </Button>
+        <Button
+          full
+          onPress={handleSignIn}
+          action="flat"
+          size='md'
+          variant="solid"
+        >
+          <ButtonText>
+            use email and password
+          </ButtonText>
+        </Button>
+      </VStack>
+      <Text className="text-center" size="sm">
+        by using <Text size="sm" bold>potom</Text>, you agree to accept our <Text size="sm" bold>terms of service</Text> and <Text size="sm" bold>privacy policy</Text>
+      </Text>
+    </VStack>
   )
 }

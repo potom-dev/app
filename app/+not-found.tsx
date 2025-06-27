@@ -4,6 +4,11 @@ import { StyleSheet } from 'react-native';
 import { ThemedView } from '@/components/ThemedView';
 import React from 'react';
 
+/**
+ * Displays a fallback screen for non-existent routes with a message and a link to the home screen.
+ *
+ * Renders a centered message indicating the screen does not exist and provides navigation back to the home route.
+ */
 export default function NotFoundScreen() {
   return (
     <>

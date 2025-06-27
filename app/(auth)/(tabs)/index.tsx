@@ -7,6 +7,13 @@ import { ThemedView } from '@/components/ThemedView';
 import { Button, ButtonText } from '@/components/ui/button';
 import UserName from '@/components/user-name';
 import { Authenticated } from 'convex/react';
+/**
+ * Displays the main home screen with a parallax header and instructional content sections.
+ *
+ * Renders a scrollable view featuring a themed header image, a greeting with the authenticated user's name, and step-by-step instructions for getting started with the app.
+ *
+ * @returns The rendered React Native home screen component.
+ */
 export default function HomeScreen() {
 
   return (

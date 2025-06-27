@@ -12,6 +12,11 @@ import { Platform } from "react-native";
 
 const redirectTo = makeRedirectUri();
 
+/**
+ * Renders the login screen, allowing users to authenticate via GitHub OAuth or email and password.
+ *
+ * Redirects authenticated users to the home page. Presents branding, two sign-in options, and a terms of service notice for unauthenticated users.
+ */
 export default function Login() {
   const { isAuthenticated } = useConvexAuth();
 

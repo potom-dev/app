@@ -8,6 +8,13 @@ import { SignIn } from '@/components/sign-in';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 
+/**
+ * Displays a scrollable screen with a parallax header and multiple collapsible sections explaining key features of the app.
+ *
+ * The screen includes informational content about file-based routing, platform support, image handling, custom fonts, color themes, and animations, with links to relevant documentation and example components.
+ *
+ * @returns The rendered React component for the "Explore" tab screen.
+ */
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView

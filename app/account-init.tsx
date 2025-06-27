@@ -6,6 +6,11 @@ import { useConvexAuth } from "convex/react";
 import { Redirect } from "expo-router";
 import React from "react";
 
+/**
+ * Displays the onboarding screen for unauthenticated users to create or join a group.
+ *
+ * If the user is already authenticated, redirects to the home page. Otherwise, presents options to create a group, scan a QR code, or enter a code manually.
+ */
 export default function AccountInit() {
   const { isAuthenticated } = useConvexAuth();
 

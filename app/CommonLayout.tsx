@@ -20,6 +20,13 @@ type ConvexAuthStore = {
   removeItem(key: string): void | Promise<void>;
 };
 
+/**
+ * Sets up the application's global layout, including authentication context, theming, font loading, and navigation stack.
+ *
+ * Optionally accepts a storage interface for authentication persistence. Prevents the splash screen from hiding until custom fonts are loaded. Applies the appropriate theme based on the device's color scheme and configures navigation with authentication and not-found screens.
+ *
+ * @param storage - Optional storage interface for authentication state persistence
+ */
 export function CommonLayout({ storage }: { storage?: ConvexAuthStore }) {
   const colorScheme = useColorScheme();
   const [loaded, error] = useFonts({

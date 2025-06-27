@@ -6,6 +6,13 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
+/**
+ * Renders a collapsible section with a toggleable header and expandable content.
+ *
+ * Displays a title with an icon indicating expansion state. When the header is pressed, the section expands or collapses to show or hide its children. The icon and styles adapt to the current color scheme.
+ *
+ * @param title - The header text displayed for the collapsible section
+ */
 export function Collapsible({ children, title }: PropsWithChildren & { title: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const theme = useColorScheme() ?? 'light';
